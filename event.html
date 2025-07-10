@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Permit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f7f7f7;
+    }
+    h3 {
+      margin-bottom: 10px;
+    }
+    .section {
+      margin-bottom: 25px;
+    }
+    .input-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .input-row input {
+      padding: 8px;
+      margin-right: 10px;
+      width: 200px;
+      font-size: 14px;
+    }
+    .input-row button {
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .output {
+      margin-left: 10px;
+      font-size: 13px;
+      color: green;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<div class="text-center mb-4">
+  <a href="index.html" class="btn btn-outline-light btn-lg rounded-pill px-4 shadow">
+    ← Kembali ke Menu Utama
+  </a>
+</div>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Event Permit</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+    input {
+      background-color: #222;
+      border: 1px solid #444;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 15px;
+      border-radius: 4px;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .section-title {
+      margin: 20px 0 10px;
+      font-weight: bold;
+    }
+    .input-row {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .input-row input {
+      margin-right: 10px;
+      flex: 1;
+    }
+    .input-row button {
+      width: 30px;
+      font-size: 14px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    textarea {
+      width: 100%;
+      height: 250px;
+      margin-top: 20px;
+      padding: 10px;
+      font-family: monospace;
+      background-color: #222;
+      color: white;
+      border: 1px solid #444;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .generate {
+      background-color: #007d45;
+      color: white;
+    }
+    .copy {
+      background-color: #444f5a;
+      color: white;
+    }
+  </style>
+</head>
+<body class="container py-4">
+  <h1 class="text-center mb-4">Event Permit</h1>
+
+  <h6>SECTION 1 - Information Details</h6>
+  <div class="section-title">Fullname</div>
+  <input id="fullname" type="text" placeholder="Fullname">
+  <div class="section-title">Date</div>
+  <input id="date" type="text" placeholder="DD/MM/YY">    
+  <div class="section-title">Start Time</div>
+  <input id="start" type="text" placeholder="HH:MM PM/AM">
+  <div class="section-title">End Time</div>
+  <input id="end" type="text" placeholder="HH:MM PM/AM">
+  <div class="section-title">Classification</div>
+  <input id="classification" type="text" placeholder="Small/Big">
+  <div class="section-title">Type</div>
+  <input id="typeloc" type="text" placeholder="Indoor/Outdoor/Mix">
+  <div class="section-title">Location</div>
+  <input id="location" type="text" placeholder="Location where you make the event">
+  <div class="section-title">Location Type</div>
+  <input id="locationtype" type="text" placeholder="Type of location">
+  <div class="section-title">Participants</div>
+  <input id="participants" type="text" placeholder="How many participants">
+  <div class="section-title">Walkie Talkie Channel for Public</div>
+  <input id="walkie" type="text" placeholder="Answer">
+  <div class="section-title">SECTION 2 - Purpose and Objectives</div>
+  <input id="purpose" type="text" placeholder="Answer">
+  <h6>SECTION 3 - Company Informations</h6>    
+  <div class="section-title">Name</div>
+  <input id="names1" type="text" placeholder="Answer">
+  <div class="section-title">Address</div>
+  <input id="address" type="text" placeholder="Answer">    
+  <div class="section-title">E-mail</div>
+  <input id="email" type="text" placeholder="Answer">
+  <div class="section-title">Fax or Phone Number</div>
+  <input id="fax" type="text" placeholder="Answer">
+
+    <div class="section-title">SECTION 4 - Head of Committee Informations</div>
+    <div id="section4-container"></div>
+
+    <div class="section-title">SECTION 5 - Member of Committee Informations</div>
+    <div id="section5-container"></div>
+
+    <div class="section-title">SECTION 6 - Rundown Details</div>
+    <div id="section6-container"></div>
+
+    <div class="section-title">SECTION 7 - Location Mapping</div>
+    <div id="section7-container"></div>
+
+    <h6>SECTION 8 - Services Request (Optional)</h6>
+    <div class="section-title">Number of Officers</div>
+    <input id="officers" type="text" placeholder="Answer">
+    <div class="section-title">Details Units (Following The Number of Officers)</div>
+    <div class="section-title">[ ] ADAM</div>
+    <input id="adam" type="text" placeholder="Answer | if you don't need unit you can fill with 0">
+    <div class="section-title">[ ] ALPHA</div>
+    <input id="alpha" type="text" placeholder="Answer">
+    <div class="section-title">[ ] MARY</div>
+    <input id="mary" type="text" placeholder="Answer">
+    <div class="section-title">[ ] HOTEL-1</div>
+    <input id="hotel1" type="text" placeholder="Answer">
+    <div class="section-title">[ ] HOTEL-2</div>
+    <input id="hotel2" type="text" placeholder="Answer">
+    <div class="section-title">[ ] TOM-1</div>
+    <input id="tom1" type="text" placeholder="Answer">
+    <div class="section-title">[ ] TOM-2</div>
+    <input id="tom2" type="text" placeholder="Answer">
+    <div class="section-title">[ ] AIR</div>
+    <input id="air" type="text" placeholder="Answer">
+    <div class="section-title">[ ] SHARK</div>
+    <input id="shark" type="text" placeholder="Answer">
+
+    <div class="section-title">Details Job Desk</div>
+    <input id="jobdesk" type="text" placeholder="Answer">
+
+    <div class="section-title">Road Block</div>
+    <input id="yes1" type="text" placeholder="[ ] YES | EXAMPLE [X] YES">
+    <input id="no1" type="text" placeholder="[ ] NO">
+
+    <div class="section-title">Road Closure</div>
+    <input id="yes2" type="text" placeholder="[ ] YES | EXAMPLE [X] YES">
+    <input id="no2" type="text" placeholder="[ ] NO">
+
+    <div class="section-title">SECTION 9 - Road Block Mapping (Optional)</div>
+    <div id="section9-container"></div>
+    
+    <div class="section-title">SECTION 10 - Road Closure Mapping (Optional)</div>
+    <div id="section10-container"></div>    
+
+  <div>
+    <button class="btn generate" onclick="generateBBCode()">Generate BBCode</button>
+    <button class="btn copy" onclick="copyBBCode()">Copy</button>
+  </div>
+
+  <textarea id="output" placeholder="Generated BBCode will appear here..."></textarea>
+
+   <script>
+  
+  function addRow(type) {
+  const container = document.getElementById(`${type}-container`);
+
+  const row = document.createElement('div');
+  row.className = 'input-row';
+
+  if (type === 'section4') {
+    const inputNames1 = document.createElement('input');
+    inputNames1.placeholder = 'Fullname';
+
+    const inputContact = document.createElement('input');
+    inputContact.placeholder = 'Phone Number';
+
+    const inputIDCard1 = document.createElement('input');
+    inputIDCard1.placeholder = 'ID-Card'; 
+
+    row.appendChild(inputNames1);
+    row.appendChild(inputContact);
+    row.appendChild(inputIDCard1);
+  }
+
+  if (type === 'section5') {
+    const inputNames2 = document.createElement('input');
+    inputNames2.placeholder = 'Fullname';
+
+    const inputPosition = document.createElement('input');
+    inputPosition.placeholder = 'Position';
+
+    const inputPhone = document.createElement('input');
+    inputPhone.placeholder = 'Phone Number';
+
+    const inputIDCard2 = document.createElement('input');
+    inputIDCard2.placeholder = 'ID-Card';    
+
+    row.appendChild(inputNames2);
+    row.appendChild(inputPosition);
+    row.appendChild(inputPhone);
+    row.appendChild(inputIDCard2);
+  }
+
+  if (type === 'section6') {
+    const inputTimes = document.createElement('input');
+    inputTimes.placeholder = 'Time';
+
+    const inputActivities = document.createElement('input');
+    inputActivities.placeholder = 'Activities';
+
+    row.appendChild(inputTimes);
+    row.appendChild(inputActivities);
+  }  
+
+  if (type === 'section7') {
+    const inputImage1 = document.createElement('input');
+    inputImage1.placeholder = 'Put your link image here';
+
+    row.appendChild(inputImage1);
+  }    
+
+  if (type === 'section9') {
+    const inputImage2 = document.createElement('input');
+    inputImage2.placeholder = 'Put your link image here';
+
+    row.appendChild(inputImage2);
+  } 
+
+  if (type === 'section10') {
+    const inputImage3 = document.createElement('input');
+    inputImage3.placeholder = 'Put your link image here';
+
+    row.appendChild(inputImage3);
+  }   
+
+  // Add + and x buttons
+  const addBtn = document.createElement('button');
+  addBtn.textContent = '+';
+  addBtn.onclick = () => addRow(type);
+
+  const removeBtn = document.createElement('button');
+  removeBtn.textContent = 'x';
+  removeBtn.onclick = () => {
+    if (container.children.length > 1) {
+      container.removeChild(row);
+    }
+  };
+
+  row.appendChild(addBtn);
+  row.appendChild(removeBtn);
+  container.appendChild(row);
+}
+
+    function generateBBCode() {
+      const fullname = document.getElementById('fullname').value.trim();
+      const date = document.getElementById('date').value.trim();
+      const start = document.getElementById('start').value.trim();
+      const end = document.getElementById('end').value.trim();
+      const classification = document.getElementById('classification').value.trim();
+      const typeloc = document.getElementById('typeloc').value.trim();
+      const location = document.getElementById('location').value.trim();
+      const locationtype = document.getElementById('locationtype').value.trim();
+      const participants = document.getElementById('participants').value.trim();
+      const walkie = document.getElementById('walkie').value.trim();
+      const purpose = document.getElementById('purpose').value.trim();
+      const names1 = document.getElementById('names1').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const fax = document.getElementById('fax').value.trim();
+      const officers = document.getElementById('officers').value.trim();
+      const adam = document.getElementById('adam').value.trim();
+      const alpha = document.getElementById('alpha').value.trim();
+      const mary = document.getElementById('mary').value.trim();
+      const hotel1 = document.getElementById('hotel1').value.trim();
+      const hotel2 = document.getElementById('hotel2').value.trim();
+      const tom1 = document.getElementById('tom1').value.trim();
+      const tom2 = document.getElementById('tom2').value.trim();
+      const air = document.getElementById('air').value.trim();
+      const shark = document.getElementById('shark').value.trim();
+      const jobdesk = document.getElementById('jobdesk').value.trim();
+      const yes1= document.getElementById('yes1').value.trim();
+      const no1 = document.getElementById('no1').value.trim();
+      const yes2 = document.getElementById('yes2').value.trim();
+      const no2 = document.getElementById('no2').value.trim();
+
+let bbcode = `[quote][quote][/quote][/quote][divbox=white][align=center][img]https://i.postimg.cc/6p42YZxx/Media-relation-division.png[/img]
+San Andreas Police Department
+Media Relation Division (MRD)
+[b]Event Registration Form[/b][/align]
+[hr]
+[align=justify]This Proposal has been requested to make in Officialy declared by the Officials, all the information below that has been answered will be saved permanently by the Office of the Administrative and will not be changed. I understand that I am obligated to be complete and truthful in providing information on this proposal. I, hereby understand and promise will obeying the valid procedures and rules of the Event Permit regulation. If I and another Committe violating, We ready to get a punishment either with the form of fines or jail.[/align]
+[list=none]Applicant Signature: ${fullname}
+[/list][/divbox]
+[divbox=white]
+[b]SECTION 1 - [/b]Information Details[hr]
+[list=none]
+Name: ${fullname}
+Date: ${date}
+Start Time: ${start}
+End Time: ${end}
+Classification: ${classification}
+Type: ${typeloc}
+Location: ${location}
+Location Type: ${locationtype}
+Participants: ${participants}
+Walkie Talkie Channel for Public: ${walkie}
+[/list][/divbox]
+[divbox=white]
+[b]SECTION 2 - [/b]Purpose and Objectives[hr]
+[align=justify][list=none]
+${purpose}
+[/list][/align][/divbox]
+[divbox=white]
+[b]SECTION 3 - [/b]Company Informations[hr]
+[list=none]
+Name: ${names1}
+Address: ${address}
+E-mail: ${email}
+Fax or Phone Number: ${fax}
+[/list][/divbox]
+[divbox=white]
+[b]SECTION 4 - [/b]Head of Committee Informations[hr]
+[table=1,91]
+[tr]
+	[td][b]Full Name[/b]
+	[td][b]Phone Number[/b]
+	[td][b]Photocopy of ID-card (( Chatlog ))[/b]\n`; 
+
+      bbcode += `[tr]\n`;
+      document.querySelectorAll('#section4-container .input-row').forEach(row => {
+        const Names1 = row.children[0].value.trim();
+        const Contact = row.children[1].value.trim();
+        const IDCARD = row.children[2].value.trim();
+        if (Names1 && Contact && IDCARD) {
+          bbcode += `	[tr]
+                      [td]${Names1}
+	                    [td]${Contact}
+	                    [td][spoiler][img]${IDCARD}[/img][/spoiler]\n`;
+        }
+      })
+      bbcode += `[/table][/divbox]\n`;
+
+    bbcode += `[divbox=white]
+[b]SECTION 5 - [/b]Member of Committee Informations[hr]
+[table=1,91]
+[tr]
+	[td][b]Full Name[/b]
+	[td][b]Position[/b]
+	[td][b]Phone Number[/b]
+	[td][b]Photocopy of ID-card (( Chatlog ))[/b]\n`;
+
+      bbcode += `[tr]\n`;
+      document.querySelectorAll('#section5-container .input-row').forEach(row => {
+        const Names2 = row.children[0].value.trim();
+        const Position = row.children[1].value.trim();
+        const Phone = row.children[2].value.trim();
+        const IDCard2 = row.children[3].value.trim();
+        if (Names2 && Position && Phone && IDCard2) {
+          bbcode += `	[tr]
+                    	[td]${Names2}
+                      [td]${Position}
+                      [td]${Phone}
+                      [td][spoiler][img]${IDCard2}[/img][/spoiler]\n`;
+        }
+      })
+      bbcode += `[/table][/divbox]\n`;
+
+    bbcode += `[divbox=white]
+[b]SECTION 6 - [/b]Rundown Details[hr]
+[table=1,91]
+[tr]
+	[td][b]Time[/b]
+	[td][b]Activities[/b]\n`;
+
+      bbcode += `[tr]\n`;
+      document.querySelectorAll('#section6-container .input-row').forEach(row => {
+        const Times = row.children[0].value.trim();
+        const Activities = row.children[1].value.trim();
+        if (Times && Activities) {
+          bbcode += `	[tr]
+                      [td]${Times}
+                      [td]${Activities}\n`;
+        }
+      })
+      bbcode += `[/table][/divbox]\n`;
+
+    bbcode += `[divbox=white]
+[b]SECTION 7 - [/b]Location Mapping[hr]\n`;
+
+      bbcode += `[list=none]\n`;
+      document.querySelectorAll('#section7-container .input-row').forEach(row => {
+        const Image1 = row.children[0].value.trim();
+        if (Image1) {
+          bbcode += `	[spoiler][img]${Image1}[/img][/spoiler]\n`;
+        }
+      })
+      bbcode += `[/list][/divbox]\n`;
+
+    bbcode += `[divbox=white]
+[b]SECTION 8 - [/b]Services Request (Optional)[hr]
+Number of Officers: ${officers}
+Details Units (Following The Number of Officers): 
+[list=none]
+	[${adam}] ADAM
+	[${alpha}] ALPHA
+	[${mary}] MARY
+	[${hotel1}] HOTEL-1
+	[${hotel2}] HOTEL-2
+	[${tom1}] TOM-1
+	[${tom2}] TOM-2
+	[${air}] AIR
+	[${shark}] SHARK[/list]
+Details Job Desk: 
+[list=none]
+${jobdesk}
+[/list]
+Road Block: [list=none]
+	[${yes1}] YES
+	[${no1}] NO[/list]
+Road Closure: [list=none]
+	[${yes2}] YES
+	[${no2}] NO
+[/list][/divbox]`;
+
+    bbcode += `[divbox=white]
+[b]SECTION 9 - [/b]Road Block Mapping (Optional)[hr]\n`;
+
+      bbcode += `[list=none]\n`;
+      document.querySelectorAll('#section9-container .input-row').forEach(row => {
+        const Image2 = row.children[0].value.trim();
+        if (Image2) {
+          bbcode += `	[spoiler][img]${Image2}[/img][/spoiler]\n`;
+        }
+      })
+      bbcode += `[/list][/divbox]\n`;
+
+    bbcode += `[divbox=white]
+[b]SECTION 10 - [/b]Road Closure Mapping (Optional)[hr]\n`;
+
+      bbcode += `[list=none]\n`;
+      document.querySelectorAll('#section10-container .input-row').forEach(row => {
+        const Image3 = row.children[0].value.trim();
+        if (Image3) {
+          bbcode += `	[spoiler][img]${Image3}[/img][/spoiler]\n`;
+        }
+      })
+      bbcode += `[/list][/divbox]\n`;
+
+
+      document.getElementById('output').value = bbcode;
+    }
+
+    function copyBBCode() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      alert('BBCode copied to clipboard!');
+    }
+
+    // Add initial row for both sections
+    window.onload = () => {
+  addRow('section4');
+  addRow('section5');
+  addRow('section6');
+  addRow('section7');
+  addRow('section9');
+  addRow('section10');
+};
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Generator BBCode - Certificate of Good Conduct</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f7f7f7;
+    }
+    h3 {
+      margin-bottom: 10px;
+    }
+    .section {
+      margin-bottom: 25px;
+    }
+    .input-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .input-row input {
+      padding: 8px;
+      margin-right: 10px;
+      width: 200px;
+      font-size: 14px;
+    }
+    .input-row button {
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .output {
+      margin-left: 10px;
+      font-size: 13px;
+      color: green;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<div class="text-center mb-4">
+  <a href="index.html" class="btn btn-outline-light btn-lg rounded-pill px-4 shadow">
+    ← Kembali ke Menu Utama
+  </a>
+</div>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Generator BBCode - Certificate of Good Conduct</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+    input {
+      background-color: #222;
+      border: 1px solid #444;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 15px;
+      border-radius: 4px;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .section-title {
+      margin: 20px 0 10px;
+      font-weight: bold;
+    }
+    .input-row {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .input-row input {
+      margin-right: 10px;
+      flex: 1;
+    }
+    .input-row button {
+      width: 30px;
+      font-size: 14px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    textarea {
+      width: 100%;
+      height: 250px;
+      margin-top: 20px;
+      padding: 10px;
+      font-family: monospace;
+      background-color: #222;
+      color: white;
+      border: 1px solid #444;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .generate {
+      background-color: #007d45;
+      color: white;
+    }
+    .copy {
+      background-color: #444f5a;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Generator BBCode - Certificate of Good Conduct</h2>
+
+  <div class="section-title">Fullname</div>
+  <input id="fullname" type="text" placeholder="Fullname">
+  <div class="section-title">Place of Birth</div>
+  <input id="birthplace" type="text" placeholder="Place of Birth">
+  <div class="section-title">Date of Birth</div>
+  <input id="birthdate" type="text" placeholder="DD/MM/YYYY">
+  <div class="section-title">Gender</div>
+  <input id="gender" type="text" placeholder="Male/Female">
+  <div class="section-title">Current Address</div>
+  <input id="address" type="text" placeholder="Your spesification address">
+  <div class="section-title">Phone Number</div>
+  <input id="phone" type="text" placeholder="Your Phone Number">
+  <div class="section-title">Nationality</div>
+  <input id="nationality" type="text" placeholder="Nationality">
+  <div class="section-title">Occupation</div>
+  <input id="occupation" type="text" placeholder="Occupation">
+  <div class="section-title">Purpose</div>
+  <input id="purpose" type="text" placeholder="Purpose for make CGC">
+  <div class="section-title">Date</div>
+  <input id="date" type="text" placeholder="Date you make this form">  
+
+  <div>
+    <button class="btn generate" onclick="generateBBCode()">Generate BBCode</button>
+    <button class="btn copy" onclick="copyBBCode()">Copy</button>
+  </div>
+
+  <textarea id="output" placeholder="Generated BBCode will appear here..."></textarea>
+
+  <script>
+
+    function generateBBCode() {
+      const fullname = document.getElementById('fullname').value.trim();
+      const birthdate = document.getElementById('birthdate').value.trim();
+      const birthplace = document.getElementById('birthplace').value.trim();
+      const gender= document.getElementById('gender').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const nationality = document.getElementById('nationality').value.trim();
+      const occupation = document.getElementById('occupation').value.trim();
+      const purpose = document.getElementById('purpose').value.trim();
+      const date = document.getElementById('date').value.trim();
+
+
+    let bbcode = `[divbox=white][align=center][img]https://i.imgur.com/bHbMbUf.png[/img]
+[/align]
+[divbox=#012849][color=white][align=center]PERSONAL INFORMATION[/align][/color][/divbox]
+
+[list] [*] [b]Full Name:[/b] ${fullname}
+[*] [b]Date of Birth :[/b] ${birthdate}
+[*] [b]Place of Birth :[/b] ${birthplace}
+[*] [b]Gender :[/b] ${gender}
+[*] [b]Current Address :[/b] ${address}
+[*] [b]Phone Number :[/b] ${phone}
+[*] [b]Nationality :[/b] ${nationality}
+[*] [b]Occupation :[/b] ${occupation}
+[/list]
+
+[divbox=#012849][color=white][align=center]ADDITIONAL INFORMATION[/align][/color][/divbox]
+
+[list] [*] [b]Purpose:[/b] ${purpose}
+[/list]
+
+[divbox=#012849][color=white][align=center]TERMS AND AGREEMENTS[/align][/color][/divbox]
+
+[i]This Certificate has been requested to Police Department. All the data above will be saved permanently in our Administrative Service Offices. This certificate will show all of your databases and records during your living in San Andreas, including last charges.[/i][hr][/hr]
+
+[hr][/hr]
+[align=center]${fullname}[/align]
+[hr][/hr]
+
+[hr][/hr]
+[align=right]
+Commanding Officer of Detective Bureau
+Commander Dre Kreiger[/align]
+[hr][/hr]
+[divbox=#f1f1f1][divbox=#20354C][color=white][align=center]LICENSE APPLICATION DECLARATION ((ISI DUA-DUANYA))[/align][/color][/divbox]
+[list=none][b]Deklarasi:[/b]
+[quote]Saya, ${fullname}, sudah membaca halaman [url=https://police-state.site/viewtopic.php?t=6]GCLU Hours[/url] dengan benar dan tahu pada jam berapa saja saya harus datang. 
+Saya, ${fullname} juga setuju bahwa jika saya [b]MASIH[/b] menggunakan [i]555 / 911[/i] untuk menanyakan sesuatu yang sudah tertera di GCLU Hours, saya akan menerima konsekuensi, yaitu [b]form saya ditolak secara langsung[/b].[/list][/quote]
+
+[list=none][b]Declaration:[/b]
+[quote]I, ${fullname}, have read and understood the [url=https://police-state.site/viewtopic.php?t=6]GCLU Hours[/url] page and know at what time should I come.
+I, ${fullname}, have agreed that my form will be [b]DENIED immediately[/b] should I still ask about something that has already been informed over GCLU Hours, over the 555/911 hotline.[/list][/quote]
+
+Los Santos, ${date}
+[u]${fullname}[/u][/divbox]`;
+
+      document.getElementById('output').value = bbcode;
+    }
+
+    function copyBBCode() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      alert('BBCode copied to clipboard!');
+    }
+
+    // Add initial row for both sections
+    window.onload = () => {
+      addRow('notable');
+      addRow('forum');
+    };
+  </script>
+
+</body>
+</html>
